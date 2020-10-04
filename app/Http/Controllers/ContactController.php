@@ -41,6 +41,7 @@ class ContactController extends Controller
             'first_name'=>'required',
             'last_name'=>'required',
             'email'=>'required',
+            'notes'=>'nullable',
             'image'=>'image|nullable|max:1999'
         ]);
 
@@ -61,7 +62,8 @@ class ContactController extends Controller
             'last_name' => $request->get('last_name'),
             'email' => $request->get('email'),
             'number' => $request->get('number'),
-            'address' => $request->get('address')
+            'address' => $request->get('address'),
+            'notes' => $request->get('notes')
         ]);
         $contact->image= $filenameStore;
         $contact->save();
@@ -104,6 +106,7 @@ class ContactController extends Controller
             'first_name'=>'required',
             'last_name'=>'required',
             'email'=>'required',
+            'notes'=>'nullable',
             'image'=>'image|nullable|max:1999'
         ]);
 
@@ -121,6 +124,7 @@ class ContactController extends Controller
         $contact->email = $request->get('email');
         $contact->number = $request->get('number');
         $contact->address = $request->get('address');
+        $contact->notes = $request->get('notes');
         if($request->hasfile('image')) 
         {
             $contact->image= $filenameStore;

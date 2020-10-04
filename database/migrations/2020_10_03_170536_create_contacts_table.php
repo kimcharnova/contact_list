@@ -21,6 +21,7 @@ class CreateContactsTable extends Migration
             $table->string('email');
             $table->string('number');
             $table->string('address');
+            $table->string('notes',1000)->nullable();
             $table->mediumText('image')->nullable();
         });
     }

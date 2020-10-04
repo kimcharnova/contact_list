@@ -12,6 +12,7 @@
           <td>Email</td>
           <td>Contact Number</td>
           <td>Adress</td>
+          <td>Notes</td>
           <td colspan = 2>Actions</td>
         </tr>
     </thead>
@@ -27,6 +28,7 @@
             <td>{{$contact->email}}</td>
             <td>{{$contact->number}}</td>
             <td>{{$contact->address}}</td>
+            <td>{{$contact->notes}}</td>
             <td>
                 <a href="{{ route('contacts.edit',$contact->id)}}" class="btn btn-primary">Edit</a>
             </td>
