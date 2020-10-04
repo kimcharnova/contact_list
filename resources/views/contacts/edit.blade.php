@@ -36,6 +36,12 @@
                 <label for="address">Address:</label>
                 <input type="text" class="form-control" name="address" value={{ $contact->address }} />
             </div>
+            <div>
+              <label class="form-group">Note:</label>
+          </div>
+          <div>
+              <textarea name="notes" cols="70" rows="10">{{ $contact->notes }}</textarea>
+          </div>
             <div class="form-group">
           <label>Image: </label>
             {{Form::file('image')}}

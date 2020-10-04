@@ -35,11 +35,18 @@
               <label for="address">Address:</label>
               <input type="text" class="form-control" name="address"/>
           </div>
+          <div>
+              <label class="col-md-4 control-label">Add Note:</label>
+          </div>
+
+          <div>
+              <textarea name="notes" cols="70" rows="10"></textarea>
+          </div>
           <div class="form-group">
           <label>Image: </label>
             {{Form::file('image')}}
           </div>
-          <button type="submit" class="btn btn-primary-outline">Add contact</button>
+          <button type="submit" class="btn btn-primary">Add contact</button>
       </form>
   </div>
 </div>
