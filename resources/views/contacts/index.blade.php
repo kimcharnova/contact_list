@@ -22,9 +22,7 @@
         @foreach($contacts as $contact)
         <tr>
             <td>{{$contact->id}}</td>
-            <td>
-            <img style="width: 10%" src = "/storage/images/{{$contact->image}}">
-            </td>
+            <td><img style="width: 10%" src = "/storage/images/{{$contact->image}}"></td>
             <td>{{$contact->first_name}} {{$contact->last_name}}</td>
             <td>{{$contact->email}}</td>
             <td>{{$contact->number}}</td>
