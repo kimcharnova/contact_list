@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Contact;
+use App\Activity_Log;
 
 class ContactController extends Controller
 {
@@ -65,8 +66,14 @@ class ContactController extends Controller
             'address' => $request->get('address'),
             'notes' => $request->get('notes')
         ]);
-        $contact->image= $filenameStore;
+        $contact->image= $filenameStore; 
+        
+        $activity_logs = new Activity_Log([
+            'status' => "Created Contact Info"
+        ]);
         $contact->save();
+        $activity_logs->id_modified = $contact->id;
+        $activity_logs->save();
         return redirect('/contacts')->with('success', 'Contact saved!');
     }
 
@@ -129,8 +136,16 @@ class ContactController extends Controller
         {
             $contact->image= $filenameStore;
         }
+        // $contact->save();
+        
+        $activity_logs = new Activity_Log([
+            'status' => "Updated Contact Info"
+        ]);
         $contact->save();
+        $activity_logs->id_modified = $contact->id;
+        $activity_logs->save();
         return redirect('/contacts')->with('success', 'Contact updated!');
+
     }
 
     /**
@@ -148,7 +163,11 @@ class ContactController extends Controller
             //Delete Image
             Storage::delete('public/images/'.$contact->image);
         }
-
+        $activity_logs = new Activity_Log([
+            'status' => "Deleted Contact Info"
+        ]);
+        $activity_logs->id_modified = $contact->id;
+        $activity_logs->save();
         $contact->delete();
         return redirect('/contacts')->with('success', 'Contact deleted!');
 

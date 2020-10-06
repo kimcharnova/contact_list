@@ -18,6 +18,7 @@
     </thead>
     <div>
     <a style="margin: 19px;" href="{{ route('contacts.create')}}" class="btn btn-primary">Add contact</a>
+    <a style="margin: 19px;" href="{{ route('activity_log.index')}}" class="btn btn-primary">Show Logs</a>
     </div>
     <tbody>
         @foreach($contacts as $contact)

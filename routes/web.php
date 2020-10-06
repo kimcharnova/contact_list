@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ContactController@index');
 
-
+Route::get('/contacts/logs', 'Activity@index')->name('activity_log.index');
 Route::resource('contacts', 'ContactController');
